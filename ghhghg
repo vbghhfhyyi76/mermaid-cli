@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نمودار فرآیند تولید</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .mermaid {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>نمودار فرآیند تولید</h1>
+    
+    <div class="mermaid">
+        flowchart TD
+            A[انبار مواد] -->|20| B[خط برش CNC]
+            B -->|15| C[پرس هیدرولیک]
+            C -->|18| D[خط مونتاژ]
+            D -->|12| E[پرداخت سطحی]
+            E -->|10| F[کنترل کیفیت]
+            F -->|8| G[انبار محصول]
+            
+            B -->|5| A
+            C -->|2| B
+            D -->|3| C
+            E -->|2| D
+            F -->|1| E
+            G -->|2| F
+            
+            style A fill:#f9f,stroke:#333
+            style B fill:#bbf,stroke:#333
+            style C fill:#f96,stroke:#333
+            style D fill:#6f9,stroke:#333
+            style E fill:#9cf,stroke:#333
+            style F fill:#fc9,stroke:#333
+            style G fill:#c9f,stroke:#333
+    </div>
+
+    <script>
+        mermaid.initialize({
+            startOnLoad: true,
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true,
+                curve: 'basis'
+            }
+        });
+    </script>
+</body>
+</html>
